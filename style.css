@@ -265,6 +265,9 @@ button:hover ~ #cursor-ring {
 }
 
 .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 24px;
   background: var(--gradient);
   border: none;
@@ -273,6 +276,7 @@ button:hover ~ #cursor-ring {
   font-size: 0.88rem;
   font-weight: 600;
   color: white;
+  text-decoration: none;
   cursor: pointer;
   transition: var(--transition);
   box-shadow: 0 4px 20px rgba(124,58,237,0.4);
@@ -282,6 +286,7 @@ button:hover ~ #cursor-ring {
 .nav-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(124,58,237,0.6);
+  color: white;
 }
 
 /* =============================================
@@ -1503,4 +1508,149 @@ button:hover ~ #cursor-ring {
   .hero-actions { flex-direction: column; align-items: center; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
   .orbit-tag { display: none; }
+}
+
+/* =============================================
+   PAGE TRANSITION CURTAIN
+   ============================================= */
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  display: flex;
+  pointer-events: none;
+}
+
+.trans-strip {
+  flex: 1;
+  height: 100%;
+  background: linear-gradient(180deg, #0d0720 0%, #12063a 50%, #060d1f 100%);
+  transform: translateY(105%);
+  transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+  position: relative;
+}
+
+/* Stagger each strip */
+.trans-strip:nth-child(1) { transition-delay: 0.00s; background: linear-gradient(160deg,#0d0720,#1a0550); }
+.trans-strip:nth-child(2) { transition-delay: 0.07s; background: linear-gradient(160deg,#0a0f2e,#14024a); }
+.trans-strip:nth-child(3) { transition-delay: 0.14s; background: linear-gradient(160deg,#08162b,#06103d); }
+.trans-strip:nth-child(4) { transition-delay: 0.21s; background: linear-gradient(160deg,#0c1440,#0a0622); }
+.trans-strip:nth-child(5) { transition-delay: 0.28s; background: linear-gradient(160deg,#0d1230,#09041e); }
+
+/* Accent line on each strip */
+.trans-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient);
+  opacity: 0.6;
+}
+
+/* OUT direction: strips fly up */
+#page-transition.trans-out .trans-strip {
+  transform: translateY(-105%);
+}
+
+#page-transition.trans-out .trans-strip:nth-child(1) { transition-delay: 0.28s; }
+#page-transition.trans-out .trans-strip:nth-child(2) { transition-delay: 0.21s; }
+#page-transition.trans-out .trans-strip:nth-child(3) { transition-delay: 0.14s; }
+#page-transition.trans-out .trans-strip:nth-child(4) { transition-delay: 0.07s; }
+#page-transition.trans-out .trans-strip:nth-child(5) { transition-delay: 0.00s; }
+
+/* IN: strips come up from bottom to cover screen */
+#page-transition.trans-in .trans-strip {
+  transform: translateY(0%);
+}
+
+/* Label shown at full cover */
+.trans-label {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.trans-label-text {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#page-transition.trans-in .trans-label-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+/* Small decorative line under label */
+.trans-label::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+#page-transition.trans-in .trans-label::after {
+  opacity: 1;
+}
+
+/* =============================================
+   EMAIL BUTTON STYLE
+   ============================================= */
+.contact-btn.email {
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1));
+  border: 1px solid rgba(124,58,237,0.4);
+  color: var(--purple-l);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.contact-btn.email:hover {
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.2));
+  border-color: var(--purple-l);
+  color: var(--text-100);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(124,58,237,0.3);
+}
+
+/* Email info card highlight */
+.email-card {
+  border-color: rgba(124,58,237,0.25) !important;
+  background: rgba(124,58,237,0.06) !important;
+}
+
+.email-link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--purple-l);
+  text-decoration: none;
+  transition: var(--transition);
+  word-break: break-all;
+}
+
+.email-link:hover {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

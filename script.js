@@ -236,13 +236,52 @@
 
   window.addEventListener('scroll', updateNav, { passive: true });
 
-  // Smooth nav clicks
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
+  // Cinematic Curtain Page Transition for Nav Links
+  const pageTransContainer = document.getElementById('page-transition');
+  const transLabelText = document.querySelector('.trans-label-text');
+  let isTransitioning = false;
+
+  function triggerPageTransition(targetEl, label) {
+    if (isTransitioning || !pageTransContainer) return;
+    isTransitioning = true;
+
+    if (transLabelText) {
+      transLabelText.textContent = label || 'Portfolio';
+    }
+
+    // Phase 1: Bring curtain up
+    pageTransContainer.classList.remove('trans-out');
+    pageTransContainer.classList.add('trans-in');
+
+    setTimeout(() => {
+      // Scroll target into position while covered
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }
+
+      // Phase 2: Slide curtain up to reveal page
+      setTimeout(() => {
+        pageTransContainer.classList.remove('trans-in');
+        pageTransContainer.classList.add('trans-out');
+
+        setTimeout(() => {
+          pageTransContainer.classList.remove('trans-out');
+          isTransitioning = false;
+        }, 650);
+      }, 350);
+    }, 450);
+  }
+
+  // Smooth nav links with curtain transition
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        e.preventDefault();
+        const labelText = anchor.textContent.trim() || href.replace('#', '').toUpperCase();
+        triggerPageTransition(target, labelText);
       }
     });
   });
@@ -380,20 +419,7 @@
     });
   });
 
-  // =============================================
-  // SMOOTH SCROLL for all anchor links
-  // =============================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+
 
   // =============================================
   // SKILL BAR OBSERVER (separate pass)
