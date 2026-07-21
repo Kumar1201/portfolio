@@ -12,21 +12,21 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kumar1201.github.io/portfolio/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kumar1201.github.io/portfolio/" />
   <meta property="og:title" content="Kumara Swamy R — Web Developer & Data Scientist" />
-  <meta property="og:description" content="Passionate about building beautiful web experiences and turning data into meaningful insights." />
+  <meta property="og:description" content="Passionate about building beautiful web experiences and turning data into meaningful insights. Explore my skills in Python, Java, Web Dev & Data Science." />
   <meta property="og:image" content="https://kumar1201.github.io/portfolio/me.jpg" />
   <meta property="og:site_name" content="Kumara Swamy R Portfolio" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kumara Swamy R — Web Developer & Data Scientist" />
   <meta name="twitter:description" content="Passionate about building beautiful web experiences and turning data into meaningful insights." />
   <meta name="twitter:image" content="https://kumar1201.github.io/portfolio/me.jpg" />
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD Structured Data (Google Rich Results) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,466 +44,222 @@
   }
   </script>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Custom Cursor -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-
-<!-- Aurora Background -->
-<div class="aurora-bg">
-  <div class="aurora aurora-1"></div>
-  <div class="aurora aurora-2"></div>
-  <div class="aurora aurora-3"></div>
-</div>
-
-<!-- Floating Orbs -->
-<div class="orbs">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-
-<!-- Canvas for particles -->
+<!-- ===== PARTICLE CANVAS ===== -->
 <canvas id="particles-canvas"></canvas>
 
-<!-- ===== PAGE TRANSITION CURTAIN ===== -->
-<div id="page-transition" aria-hidden="true">
-  <div class="trans-strip"></div>
-  <div class="trans-strip"></div>
-  <div class="trans-strip"></div>
-  <div class="trans-strip"></div>
-  <div class="trans-strip"></div>
-  <div class="trans-label">
-    <span class="trans-label-text"></span>
-  </div>
-</div>
-
-<!-- ===== NAVIGATION ===== -->
-<nav id="navbar">
-  <div class="nav-brand">
-    <span class="brand-bracket">&lt;</span>KS<span class="brand-bracket">/&gt;</span>
-  </div>
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-logo">KS&lt;/&gt;</div>
   <ul class="nav-links">
-    <li><a href="#hero" class="nav-link active">Home</a></li>
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#skills" class="nav-link">Skills</a></li>
-    <li><a href="#expertise" class="nav-link">Expertise</a></li>
-    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><button class="nav-btn active" data-page="0">Home</button></li>
+    <li><button class="nav-btn" data-page="1">About</button></li>
+    <li><button class="nav-btn" data-page="2">Skills</button></li>
+    <li><button class="nav-btn" data-page="3">Expertise</button></li>
+    <li><button class="nav-btn" data-page="4">Contact</button></li>
   </ul>
-  <a href="mailto:wwwkumar2006@gmail.com" class="nav-cta" id="hire-me-btn">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    Hire Me
-  </a>
+
+  <!-- Page indicator dots -->
+  <div class="page-dots">
+    <span class="dot active" data-page="0"></span>
+    <span class="dot" data-page="1"></span>
+    <span class="dot" data-page="2"></span>
+    <span class="dot" data-page="3"></span>
+    <span class="dot" data-page="4"></span>
+  </div>
 </nav>
 
-<!-- ===== HERO SECTION ===== -->
-<section id="hero" class="section-hero">
-  <div class="hero-inner">
-    <div class="hero-badge-wrap">
-      <span class="hero-badge">
-        <span class="badge-dot"></span>
-        Open to opportunities
-      </span>
-    </div>
+<!-- ===== PAGE CONTAINER ===== -->
+<div class="pages-wrapper" id="pagesWrapper">
 
-    <div class="hero-text-block">
-      <p class="hero-greeting">Hello, I'm</p>
-      <h1 class="hero-name">
-        <span class="name-line">Kumara</span>
-        <span class="name-line gradient-text">Swamy R</span>
-      </h1>
-      <div class="hero-role-wrap">
-        <span class="role-prefix">I craft</span>
-        <div class="role-typewriter">
-          <span id="type-text"></span><span class="type-cursor">|</span>
-        </div>
-      </div>
-      <p class="hero-desc">
-        Passionate about building <strong>beautiful web experiences</strong> and turning raw data into <strong>meaningful insights</strong>. Let's create something extraordinary together.
-      </p>
-    </div>
-
-    <div class="hero-actions">
-      <a href="#about" class="btn-primary" id="btn-explore">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  <!-- PAGE 0: HERO -->
+  <div class="page" id="page-0">
+    <div class="hero-badge">✦ Available for opportunities</div>
+    <img src="me.jpg" alt="Kumara Swamy R" class="hero-avatar" />
+    <h1 class="hero-title">Hi, I'm <span class="gradient-text">Kumara Swamy R</span></h1>
+    <p class="hero-subtitle"><span id="typing-text"></span><span class="cursor">|</span></p>
+    <p class="hero-desc">Passionate about building beautiful web experiences and turning data into meaningful insights. Let's create something extraordinary.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="goToPage(1)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         Explore My Work
-      </a>
-      <a href="#contact" class="btn-ghost" id="btn-contact">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button class="btn-outline" onclick="goToPage(4)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Get In Touch
-      </a>
+      </button>
     </div>
-
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number" data-count="5">0</span>
-        <span class="stat-suffix">+</span>
-        <span class="stat-label">Projects</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number" data-count="3">0</span>
-        <span class="stat-suffix">+</span>
-        <span class="stat-label">Languages</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number" data-count="100">0</span>
-        <span class="stat-suffix">%</span>
-        <span class="stat-label">Dedication</span>
-      </div>
-    </div>
-
-    <div class="hero-photo-wrap">
-      <div class="photo-ring-outer"></div>
-      <div class="photo-ring-inner"></div>
-      <img src="me.jpg" alt="Kumara Swamy R" class="hero-photo" />
-      <div class="photo-glow"></div>
-      <!-- Orbiting tag -->
-      <div class="orbit-tag orbit-tag-1">
-        <span>🐍 Python</span>
-      </div>
-      <div class="orbit-tag orbit-tag-2">
-        <span>☕ Java</span>
-      </div>
-      <div class="orbit-tag orbit-tag-3">
-        <span>📊 Data Science</span>
-      </div>
+    <div class="page-nav-arrow" onclick="goToPage(1)">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
     </div>
   </div>
 
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ===== ABOUT SECTION ===== -->
-<section id="about" class="section reveal-section">
-  <div class="container">
-    <div class="section-tag">// about_me</div>
+  <!-- PAGE 1: ABOUT -->
+  <div class="page page-about" id="page-1">
     <div class="about-grid">
-      <div class="about-visual reveal-left">
-        <div class="about-img-frame">
-          <img src="me.jpg" alt="Kumara Swamy R" class="about-img" />
-          <div class="img-border-anim"></div>
-        </div>
-        <div class="about-badge-stack">
-          <div class="mini-badge">
-            <span class="mini-icon">🚀</span>
-            <div>
-              <div class="mini-title">Fast Learner</div>
-              <div class="mini-sub">Always upskilling</div>
-            </div>
-          </div>
-          <div class="mini-badge mb-2">
-            <span class="mini-icon">💡</span>
-            <div>
-              <div class="mini-title">Problem Solver</div>
-              <div class="mini-sub">Love challenges</div>
-            </div>
-          </div>
-        </div>
+      <div class="about-img-wrap">
+        <div class="profile-ring"></div>
+        <img src="me.jpg" alt="Kumara Swamy R" class="about-img" />
       </div>
-
-      <div class="about-content reveal-right">
-        <h2 class="section-heading">Crafting Code,<br /><span class="gradient-text">Unlocking Data</span></h2>
-        <div class="heading-line"></div>
-        <p class="about-para">
-          I'm <strong>Kumara Swamy R</strong>, a passionate <strong>Web Developer</strong> and <strong>Data Scientist</strong> who transforms complex problems into elegant, efficient solutions.
-        </p>
-        <p class="about-para">
-          From building <strong>responsive web interfaces</strong> to crafting <strong>data pipelines</strong> and models, I bring a full-stack mindset to every challenge. My toolkit spans Python, Java, and C — with a deep love for clean, maintainable code.
-        </p>
-        <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Java</span>
-          <span class="tag">C</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">HTML/CSS/JS</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Pandas</span>
-        </div>
-        <div class="about-stats-row">
-          <div class="astat">
-            <div class="astat-num" data-count="5">0</div>
-            <div class="astat-lbl">Projects</div>
-          </div>
-          <div class="astat">
-            <div class="astat-num" data-count="3">0</div>
-            <div class="astat-lbl">Languages</div>
-          </div>
-          <div class="astat">
-            <div class="astat-num" data-count="2">0</div>
-            <div class="astat-lbl">Domains</div>
-          </div>
+      <div class="about-content">
+        <div class="section-label">// about_me</div>
+        <h2 class="section-title">Crafting Code,<br/><span>Unlocking Data</span></h2>
+        <div class="section-line"></div>
+        <p>I'm <strong>Kumara Swamy R</strong>, a passionate <strong>Web Developer</strong> and <strong>Data Scientist</strong> who transforms complex problems into elegant, efficient solutions.</p>
+        <p>From building responsive web interfaces to crafting data pipelines and models, I bring a full-stack mindset to every challenge. My toolkit spans <strong>Python, Java, and C</strong>.</p>
+        <div class="about-stats">
+          <div class="stat-box"><div class="stat-num" data-count="3" data-suffix="+">0+</div><div class="stat-label">Languages</div></div>
+          <div class="stat-box"><div class="stat-num" data-count="2" data-suffix="">0</div><div class="stat-label">Roles</div></div>
+          <div class="stat-box"><div class="stat-num" data-count="100" data-suffix="%">0%</div><div class="stat-label">Dedication</div></div>
         </div>
       </div>
     </div>
+    <div class="page-arrows">
+      <button class="arrow-btn" onclick="goToPage(0)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
+      </button>
+      <button class="arrow-btn primary" onclick="goToPage(2)">
+        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
+      </button>
+    </div>
   </div>
-</section>
 
-<!-- ===== SKILLS SECTION ===== -->
-<section id="skills" class="section reveal-section">
-  <div class="container">
-    <div class="section-tag">// tech_stack</div>
-    <h2 class="section-heading center-text">My <span class="gradient-text">Skills</span></h2>
-    <div class="heading-line center-line"></div>
-
+  <!-- PAGE 2: SKILLS -->
+  <div class="page page-skills" id="page-2">
+    <div class="section-header">
+      <div class="section-label">// tech_stack</div>
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <div class="section-line"></div>
+    </div>
     <div class="skills-grid">
-      <div class="skill-card reveal-up" style="--delay:0s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">🐍</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">Python</span>
-            <span class="skill-pct">88%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="88%"></div>
-          </div>
-          <p class="skill-desc">Data science, automation, scripting. NumPy, Pandas, Matplotlib, Scikit-learn.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-desc">Data science, automation, scripting and backend logic. NumPy, Pandas, Matplotlib.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="88%"></div></div>
       </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.1s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">☕</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">Java</span>
-            <span class="skill-pct">78%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="78%"></div>
-          </div>
-          <p class="skill-desc">OOP, enterprise application development, robust system design and patterns.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">☕</div>
+        <div class="skill-name">Java</div>
+        <div class="skill-desc">Object-oriented programming, enterprise application development and robust system design.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="78%"></div></div>
       </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.2s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">⚙️</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">C Programming</span>
-            <span class="skill-pct">75%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="75%"></div>
-          </div>
-          <p class="skill-desc">Low-level programming, memory management, systems development and algorithms.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">C</div>
+        <div class="skill-desc">Low-level programming, memory management, systems development. Strong algorithmic foundation.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="75%"></div></div>
       </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.3s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">🌐</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">Web Development</span>
-            <span class="skill-pct">82%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="82%"></div>
-          </div>
-          <p class="skill-desc">Responsive, modern web interfaces with semantic HTML5, CSS3, and JavaScript.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Web Development</div>
+        <div class="skill-desc">Responsive, modern web interfaces with semantic HTML, CSS, and JavaScript.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="82%"></div></div>
       </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.4s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">📊</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">Data Science</span>
-            <span class="skill-pct">80%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="80%"></div>
-          </div>
-          <p class="skill-desc">Data wrangling, EDA, visualization, and applying ML to real-world problems.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Data Science</div>
+        <div class="skill-desc">Data wrangling, EDA, visualization, and applying machine learning to real problems.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="80%"></div></div>
       </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.5s">
-        <div class="skill-card-glow"></div>
-        <div class="skill-icon-wrap">
-          <span class="skill-emoji">🔧</span>
-        </div>
-        <div class="skill-info">
-          <div class="skill-top">
-            <span class="skill-name">Problem Solving</span>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" data-width="90%"></div>
-          </div>
-          <p class="skill-desc">Strong DS&A foundations. Turning complex challenges into clean, efficient solutions.</p>
-        </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔧</div>
+        <div class="skill-name">Problem Solving</div>
+        <div class="skill-desc">Strong algorithms and data structures. Turning complex challenges into clean solutions.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-level="90%"></div></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== EXPERTISE SECTION ===== -->
-<section id="expertise" class="section reveal-section">
-  <div class="container">
-    <div class="section-tag">// what_i_do</div>
-    <h2 class="section-heading center-text">My <span class="gradient-text">Expertise</span></h2>
-    <div class="heading-line center-line"></div>
-
-    <div class="expertise-grid">
-      <div class="exp-card reveal-up" style="--delay:0s">
-        <div class="exp-card-inner">
-          <div class="exp-number">01</div>
-          <div class="exp-icon">🖥️</div>
-          <h3 class="exp-title">Web Development</h3>
-          <p class="exp-desc">Designing and building modern, responsive websites that load fast and look stunning on any device — from landing pages to full web apps.</p>
-          <div class="exp-tags">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal-up" style="--delay:0.15s">
-        <div class="exp-card-inner">
-          <div class="exp-number">02</div>
-          <div class="exp-icon">🤖</div>
-          <h3 class="exp-title">Data Science & ML</h3>
-          <p class="exp-desc">Extracting valuable insights from data through statistical analysis, ML models, and compelling visualizations that drive better decisions.</p>
-          <div class="exp-tags">
-            <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal-up" style="--delay:0.3s">
-        <div class="exp-card-inner">
-          <div class="exp-number">03</div>
-          <div class="exp-icon">🔬</div>
-          <h3 class="exp-title">Algorithm Design</h3>
-          <p class="exp-desc">Writing efficient, well-structured algorithms in Python, Java, and C to solve complex computational problems elegantly and optimally.</p>
-          <div class="exp-tags">
-            <span>Java</span><span>C</span><span>DSA</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal-up" style="--delay:0.45s">
-        <div class="exp-card-inner">
-          <div class="exp-number">04</div>
-          <div class="exp-icon">📈</div>
-          <h3 class="exp-title">Data Visualization</h3>
-          <p class="exp-desc">Transforming raw numbers into beautiful, interactive charts and dashboards that tell compelling stories and drive informed decisions.</p>
-          <div class="exp-tags">
-            <span>Matplotlib</span><span>Seaborn</span><span>Plotly</span>
-          </div>
-        </div>
-      </div>
+    <div class="page-arrows">
+      <button class="arrow-btn" onclick="goToPage(1)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
+      </button>
+      <button class="arrow-btn primary" onclick="goToPage(3)">
+        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
+      </button>
     </div>
   </div>
-</section>
 
-<!-- ===== CONTACT SECTION ===== -->
-<section id="contact" class="section reveal-section">
-  <div class="container">
-    <div class="section-tag">// contact_me</div>
-    <h2 class="section-heading center-text">Let's <span class="gradient-text">Connect</span></h2>
-    <div class="heading-line center-line"></div>
-
-    <div class="contact-wrapper">
-      <div class="contact-card reveal-up">
-        <div class="contact-glow-top"></div>
-        <div class="contact-avatar-wrap">
-          <img src="me.jpg" alt="Kumara Swamy R" class="contact-avatar" />
-          <div class="contact-avatar-ring"></div>
-        </div>
-        <h3 class="contact-name">Kumara Swamy R</h3>
-        <p class="contact-title">Web Developer &amp; Data Scientist</p>
-        <p class="contact-msg">I'm open to new opportunities, collaborations, and interesting conversations. Whether you have a project in mind or just want to say hi — I'd love to hear from you!</p>
-
-        <div class="contact-links">
-          <a href="mailto:wwwkumar2006@gmail.com" class="contact-btn email" id="link-email">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            wwwkumar2006@gmail.com
-          </a>
-          <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="contact-btn github" id="link-github">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            View GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="contact-btn linkedin" id="link-linkedin">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            Connect on LinkedIn
-          </a>
-        </div>
+  <!-- PAGE 3: EXPERTISE -->
+  <div class="page page-roles" id="page-3">
+    <div class="section-header">
+      <div class="section-label">// what_i_do</div>
+      <h2 class="section-title">My <span>Expertise</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">🖥️</div>
+        <div class="role-title">Web Development</div>
+        <div class="role-desc">Designing and building modern, responsive websites that load fast and look stunning on any device.</div>
       </div>
-
-      <div class="contact-info-col">
-        <div class="info-card reveal-right email-card" style="--delay:0s">
-          <div class="info-icon">✉️</div>
-          <div>
-            <div class="info-label">Email Me At</div>
-            <a href="mailto:wwwkumar2006@gmail.com" class="info-value email-link">wwwkumar2006@gmail.com</a>
-          </div>
-        </div>
-        <div class="info-card reveal-right" style="--delay:0.1s">
-          <div class="info-icon">📬</div>
-          <div>
-            <div class="info-label">Available For</div>
-            <div class="info-value">Full-time, Freelance &amp; Internship</div>
-          </div>
-        </div>
-        <div class="info-card reveal-right" style="--delay:0.2s">
-          <div class="info-icon">🌍</div>
-          <div>
-            <div class="info-label">Location</div>
-            <div class="info-value">India (Remote / On-site)</div>
-          </div>
-        </div>
-        <div class="info-card reveal-right" style="--delay:0.3s">
-          <div class="info-icon">⚡</div>
-          <div>
-            <div class="info-label">Response Time</div>
-            <div class="info-value">Within 24 hours</div>
-          </div>
-        </div>
-        <div class="quote-block reveal-right" style="--delay:0.4s">
-          <span class="quote-mark">"</span>
-          <p>The best way to predict the future is to <strong>build it</strong>.</p>
-        </div>
+      <div class="role-card">
+        <div class="role-icon">🤖</div>
+        <div class="role-title">Data Science</div>
+        <div class="role-desc">Extracting valuable insights from data through statistical analysis, ML models, and visualizations.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔬</div>
+        <div class="role-title">Algorithm Design</div>
+        <div class="role-desc">Writing efficient, well-structured algorithms in Python, Java, and C to solve complex problems elegantly.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📈</div>
+        <div class="role-title">Data Visualization</div>
+        <div class="role-desc">Transforming raw numbers into beautiful charts and dashboards that tell a story and drive decisions.</div>
       </div>
     </div>
+    <div class="page-arrows">
+      <button class="arrow-btn" onclick="goToPage(2)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
+      </button>
+      <button class="arrow-btn primary" onclick="goToPage(4)">
+        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
+      </button>
+    </div>
   </div>
-</section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-glow"></div>
-  <p class="footer-text">
-    Designed &amp; Built with <span class="heart">❤️</span> by <strong>Kumara Swamy R</strong> · © 2025
-  </p>
-  <p class="footer-sub">All rights reserved · <a href="https://kumar1201.github.io/portfolio/" class="footer-link">kumar1201.github.io/portfolio</a></p>
-</footer>
+  <!-- PAGE 4: CONTACT -->
+  <div class="page page-contact" id="page-4">
+    <div class="section-header">
+      <div class="section-label">// contact_me</div>
+      <h2 class="section-title">Let's <span>Connect</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-card">
+      <img src="me.jpg" alt="Kumara Swamy R" class="contact-avatar" />
+      <h3 class="contact-name">Kumara Swamy R</h3>
+      <p class="contact-role">Web Developer &amp; Data Scientist</p>
+      <p class="contact-msg">I'm open to new opportunities, collaborations, and interesting conversations. Whether you have a project in mind or just want to say hi — I'd love to hear from you!</p>
+      <div class="social-links">
+        <a href="mailto:wwwkumar2006@gmail.com" class="social-link">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Me
+        </a>
+        <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="page-arrows">
+      <button class="arrow-btn" onclick="goToPage(3)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
+      </button>
+      <button class="arrow-btn primary" onclick="goToPage(0)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 5l7 7-7 7"/></svg> Home
+      </button>
+    </div>
+    <footer>Designed &amp; Built with ❤️ by <span>Kumara Swamy R</span> · © 2025</footer>
+  </div>
+
+</div><!-- end pages-wrapper -->
 
 <script src="script.js"></script>
 </body>
