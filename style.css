@@ -132,12 +132,35 @@ nav{
   display:inline-flex;align-items:center;gap:.5rem;
   padding:.75rem 1.6rem;border-radius:50px;
   font-size:.93rem;font-weight:600;cursor:pointer;
-  transition:.3s;border:none;font-family:'Outfit',sans-serif;
+  transition:transform .25s, box-shadow .25s, background .25s;
+  border:none;font-family:'Outfit',sans-serif;
+  position:relative;overflow:hidden;
+}
+/* ripple */
+.btn-primary::after,.btn-outline::after{
+  content:'';position:absolute;width:0;height:0;
+  background:rgba(255,255,255,.25);border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width .55s ease,height .55s ease,opacity .55s ease;
+  opacity:0;left:50%;top:50%;
+}
+.btn-primary:active::after,.btn-outline:active::after{
+  width:260px;height:260px;opacity:0;
 }
 .btn-primary{background:var(--grad);color:#fff;box-shadow:0 4px 20px rgba(59,130,246,.4)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(59,130,246,.6)}
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 10px 32px rgba(59,130,246,.7);
+}
 .btn-outline{background:transparent;color:var(--neon);border:1.5px solid var(--neon)}
-.btn-outline:hover{background:rgba(96,165,250,.12);transform:translateY(-2px)}
+.btn-outline:hover{
+  background:rgba(96,165,250,.14);transform:translateY(-3px) scale(1.04);
+  box-shadow:0 6px 22px rgba(96,165,250,.3);
+}
+/* icon spin inside buttons */
+.btn-primary svg,.btn-outline svg{transition:transform .3s;}
+.btn-primary:hover svg{transform:rotate(360deg) scale(1.15);}
+.btn-outline:hover svg{transform:translateX(3px) scale(1.1);}
 
 /* ===== PAGE 1 — ABOUT ===== */
 .page-about{overflow-y:auto}
@@ -186,21 +209,54 @@ nav{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
   max-width:900px;width:100%;
 }
+
+/* staggered entrance animation */
 .skill-card{
   background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);
-  padding:1.4rem;backdrop-filter:blur(10px);transition:.3s;position:relative;overflow:hidden;
+  padding:1.4rem;backdrop-filter:blur(10px);transition:border-color .3s,transform .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(30px);
+  animation:none;
 }
+.skill-card.card-visible{
+  animation:cardIn .55s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(32px) scale(.96)}
+  to  {opacity:1;transform:translateY(0)   scale(1)}
+}
+
+/* top gradient bar */
 .skill-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--grad);transform:scaleX(0);transform-origin:left;transition:.3s;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
 }
-.skill-card:hover{border-color:rgba(59,130,246,.4);transform:translateY(-5px);box-shadow:var(--glow)}
+/* shimmer overlay */
+.skill-card::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.07) 50%,transparent 60%);
+  background-size:200% 100%;
+  background-position:200% 0;
+  transition:background-position .6s ease;
+  pointer-events:none;
+}
+.skill-card:hover{border-color:rgba(59,130,246,.5);transform:translateY(-7px) scale(1.02);box-shadow:0 0 40px rgba(59,130,246,.45),0 0 0 1px rgba(59,130,246,.18)}
 .skill-card:hover::before{transform:scaleX(1)}
-.skill-icon{font-size:2rem;margin-bottom:.6rem}
+.skill-card:hover::after{background-position:-50% 0}
+
+/* icon pulse */
+.skill-icon{font-size:2rem;margin-bottom:.6rem;display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+.skill-card:hover .skill-icon{transform:scale(1.25) rotate(-8deg);}
+
 .skill-name{font-size:1rem;font-weight:700;margin-bottom:.4rem}
 .skill-desc{font-size:.82rem;color:var(--txt2);margin-bottom:.9rem}
-.skill-bar-wrap{background:rgba(255,255,255,.06);border-radius:99px;height:5px;overflow:hidden}
-.skill-bar{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.skill-bar-wrap{background:rgba(255,255,255,.06);border-radius:99px;height:6px;overflow:hidden}
+.skill-bar{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+/* shimmering bar highlight */
+.skill-bar::after{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:rgba(255,255,255,.35);transform:skewX(-20deg);animation:barShine 2s 1.4s ease infinite;}
+@keyframes barShine{0%{left:-60%}100%{left:160%}}
 
 /* ===== PAGE 3 — ROLES ===== */
 .page-roles{overflow-y:auto;justify-content:flex-start;padding-top:5.5rem}
@@ -275,6 +331,51 @@ footer span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fil
 /* ===== KEYFRAMES ===== */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== HIRE ME — Floating Button ===== */
+#hire-me-btn{
+  position:fixed;
+  right:0;
+  top:50%;
+  transform:translateY(-50%) translateX(0);
+  z-index:999;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  /* flip so text reads bottom-to-top (upright on right edge) */
+  transform:translateY(-50%) rotate(180deg);
+
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.85rem .65rem;
+  background:linear-gradient(180deg,#7c3aed,#3b82f6);
+  color:#fff;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;
+  letter-spacing:1.5px;
+  border:none;cursor:pointer;
+  border-radius:14px 0 0 14px;
+  box-shadow:-4px 0 28px rgba(124,58,237,.55),0 0 0 0 rgba(124,58,237,.4);
+  text-decoration:none;
+  animation:hirePulse 2.4s ease-in-out infinite;
+  transition:box-shadow .3s, transform .3s;
+  /* counteract vertical writing so icon stays right-way up */
+}
+#hire-me-btn:hover{
+  box-shadow:-8px 0 40px rgba(59,130,246,.8),0 0 0 0 rgba(59,130,246,.3);
+  transform:translateY(-50%) rotate(180deg) translateX(-5px);
+}
+@keyframes hirePulse{
+  0%,100%{box-shadow:-4px 0 28px rgba(124,58,237,.55)}
+  50%    {box-shadow:-4px 0 48px rgba(124,58,237,.9), 0 0 0 8px rgba(124,58,237,.08)}
+}
+/* label & icon inside */
+#hire-me-btn .hm-label{
+  font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+}
+#hire-me-btn .hm-icon{
+  font-size:1.1rem;
+  /* undo writing-mode rotation so emoji shows upright */
+  display:inline-block;
+  transform:rotate(180deg);
+}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){

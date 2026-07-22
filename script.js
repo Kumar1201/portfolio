@@ -96,13 +96,23 @@ document.addEventListener('touchend', e => {
 // Initialise first page
 goToPage(0);
 
-/* ===== Skill Bars ===== */
+/* ===== Skill Bars + Staggered Card Animation ===== */
 let skillsTriggered = false;
 function triggerSkillBars() {
   if (skillsTriggered) return;
   skillsTriggered = true;
+
+  // Staggered card entrance
+  const cards = document.querySelectorAll('.skill-card');
+  cards.forEach((card, i) => {
+    card.classList.remove('card-visible');
+    void card.offsetWidth; // reflow
+    setTimeout(() => card.classList.add('card-visible'), i * 110);
+  });
+
+  // Animate skill bars
   document.querySelectorAll('.skill-bar').forEach(bar => {
-    setTimeout(() => { bar.style.width = bar.dataset.level; }, 200);
+    setTimeout(() => { bar.style.width = bar.dataset.level; }, 350);
   });
 }
 
@@ -201,3 +211,35 @@ function animate() {
 }
 initParticles();
 animate();
+
+/* ===== Button Ripple Effect ===== */
+document.querySelectorAll('.btn-primary, .btn-outline, .arrow-btn, .nav-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const ripple = document.createElement('span');
+    ripple.style.cssText = `
+      position:absolute;border-radius:50%;pointer-events:none;
+      width:6px;height:6px;
+      left:${x - 3}px;top:${y - 3}px;
+      background:rgba(255,255,255,0.5);
+      transform:scale(0);opacity:1;
+      animation:rippleAnim .55s ease-out forwards;
+    `;
+    // Ensure position:relative on the button
+    if (getComputedStyle(this).position === 'static') this.style.position = 'relative';
+    this.style.overflow = 'hidden';
+    this.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+});
+
+// Add ripple keyframe dynamically
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+  @keyframes rippleAnim {
+    to { transform: scale(60); opacity: 0; }
+  }
+`;
+document.head.appendChild(rippleStyle);
