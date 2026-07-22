@@ -332,50 +332,38 @@ footer span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fil
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-/* ===== HIRE ME — Floating Button ===== */
+/* ===== HIRE ME — Top-Right Floating Button ===== */
 #hire-me-btn{
   position:fixed;
-  right:0;
-  top:50%;
-  transform:translateY(-50%) translateX(0);
+  top:68px;           /* just below the nav bar */
+  right:2rem;
   z-index:999;
-  writing-mode:vertical-rl;
-  text-orientation:mixed;
-  /* flip so text reads bottom-to-top (upright on right edge) */
-  transform:translateY(-50%) rotate(180deg);
 
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.85rem .65rem;
-  background:linear-gradient(180deg,#7c3aed,#3b82f6);
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.48rem 1.1rem;
+  background:linear-gradient(135deg,#7c3aed,#3b82f6);
   color:#fff;
-  font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;
-  letter-spacing:1.5px;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;
+  letter-spacing:1px;text-transform:uppercase;
   border:none;cursor:pointer;
-  border-radius:14px 0 0 14px;
-  box-shadow:-4px 0 28px rgba(124,58,237,.55),0 0 0 0 rgba(124,58,237,.4);
+  border-radius:50px;
+  box-shadow:0 4px 20px rgba(124,58,237,.55);
   text-decoration:none;
   animation:hirePulse 2.4s ease-in-out infinite;
-  transition:box-shadow .3s, transform .3s;
-  /* counteract vertical writing so icon stays right-way up */
+  transition:transform .25s, box-shadow .25s;
+  white-space:nowrap;
 }
 #hire-me-btn:hover{
-  box-shadow:-8px 0 40px rgba(59,130,246,.8),0 0 0 0 rgba(59,130,246,.3);
-  transform:translateY(-50%) rotate(180deg) translateX(-5px);
+  transform:translateY(-3px) scale(1.06);
+  box-shadow:0 8px 32px rgba(59,130,246,.75);
+  animation:none;
 }
 @keyframes hirePulse{
-  0%,100%{box-shadow:-4px 0 28px rgba(124,58,237,.55)}
-  50%    {box-shadow:-4px 0 48px rgba(124,58,237,.9), 0 0 0 8px rgba(124,58,237,.08)}
+  0%,100%{box-shadow:0 4px 20px rgba(124,58,237,.55)}
+  50%    {box-shadow:0 4px 36px rgba(124,58,237,.9), 0 0 0 6px rgba(124,58,237,.1)}
 }
-/* label & icon inside */
-#hire-me-btn .hm-label{
-  font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
-}
-#hire-me-btn .hm-icon{
-  font-size:1.1rem;
-  /* undo writing-mode rotation so emoji shows upright */
-  display:inline-block;
-  transform:rotate(180deg);
-}
+#hire-me-btn .hm-icon{font-size:1rem;}
+#hire-me-btn .hm-label{font-size:.8rem;letter-spacing:1.5px;}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
