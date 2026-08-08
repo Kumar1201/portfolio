@@ -436,32 +436,83 @@ nav {
 .role-desc { color: var(--txt2); font-size: .83rem; line-height: 1.6; }
 
 /* ===== CONTACT ===== */
-.page-contact { justify-content: flex-start; padding-top: calc(var(--nav-h) + 1rem); overflow-y: auto; }
-.page-contact .section-header { margin-bottom: 1.2rem; }
-.contact-card {
-  background: rgba(255,255,255,.04); border: 1px solid rgba(0,245,255,.18);
-  border-radius: 24px; padding: 2rem 1.8rem;
-  backdrop-filter: blur(24px); text-align: center;
-  max-width: 520px; width: 100%;
-  box-shadow: 0 28px 70px rgba(0,245,255,.12), 0 0 0 1px rgba(0,245,255,.08);
-  position: relative; overflow: hidden;
-}
-.contact-avatar {
-  width: 90px; height: 90px; border-radius: 50%;
-  border: 3px solid transparent;
-  background: linear-gradient(var(--bg), var(--bg)) padding-box,
-              conic-gradient(#00f5ff, #ff2d78, #ffd700, #39ff14, #00f5ff) border-box;
-  object-fit: cover; object-position: top; margin-bottom: 1rem;
-  box-shadow: 0 0 28px rgba(0,245,255,.4);
-}
-.contact-name { font-size: 1.4rem; font-weight: 900; margin-bottom: .25rem; }
-.contact-role { font-family: 'Fira Code', monospace; font-size: .8rem; background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .9rem; }
-.contact-msg { color: var(--txt2); font-size: .88rem; margin-bottom: 1.4rem; line-height: 1.65; }
+.page-contact { justify-content: flex-start; padding: calc(var(--nav-h) + .6rem) 2rem .8rem; overflow-y: auto; }
+.contact-header { margin-bottom: .8rem; }
+.contact-header .section-title { font-size: clamp(1.4rem,3vw,2rem); }
 
-.contact-direct-links { display: flex; flex-direction: column; gap: .7rem; width: 100%; }
+/* Two-column layout */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  max-width: 900px;
+  width: 100%;
+  align-items: start;
+}
+
+/* LEFT column */
+.contact-profile-col { display: flex; flex-direction: column; gap: .75rem; }
+
+.contact-profile-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(0,245,255,.18);
+  border-radius: 20px; padding: 1rem 1.2rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 16px 48px rgba(0,245,255,.1);
+}
+.cp-avatar-wrap {
+  position: relative; flex-shrink: 0;
+  width: 68px; height: 68px;
+}
+.cp-avatar-ring {
+  position: absolute; inset: -4px; border-radius: 50%;
+  background: conic-gradient(#00f5ff, #ff2d78, #ffd700, #39ff14, #00f5ff);
+  animation: spinRing 4s linear infinite;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 3px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 3px));
+}
+.cp-avatar {
+  width: 68px; height: 68px; border-radius: 50%;
+  object-fit: cover; object-position: top;
+  border: 2px solid rgba(0,245,255,.25);
+}
+.cp-online {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #39ff14;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 6px #39ff14;
+}
+.cp-info { flex: 1; min-width: 0; }
+.cp-name { font-size: 1rem; font-weight: 900; margin-bottom: .15rem; }
+.cp-role {
+  font-family: 'Fira Code', monospace; font-size: .72rem;
+  background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: .35rem;
+}
+.cp-bio { color: var(--txt2); font-size: .78rem; line-height: 1.5; }
+
+/* Social preview cards inside contact */
+.contact-social-cards {
+  display: flex; gap: .6rem;
+}
+.contact-social-cards .hero-social-card {
+  flex: 1; padding: .65rem .85rem;
+}
+.contact-social-cards .hsc-icon { width: 20px; height: 20px; }
+
+/* RIGHT column */
+.contact-links-col { display: flex; flex-direction: column; gap: .6rem; }
+.contact-links-label {
+  font-family: 'Fira Code', monospace; font-size: .72rem;
+  color: var(--txt2); margin-bottom: .2rem;
+  letter-spacing: .05em;
+}
+.contact-direct-links { display: flex; flex-direction: column; gap: .6rem; width: 100%; }
 .contact-big-link {
-  display: flex; align-items: center; gap: .9rem;
-  padding: .8rem 1.1rem; border-radius: 14px; text-decoration: none;
+  display: flex; align-items: center; gap: .75rem;
+  padding: .7rem 1rem; border-radius: 14px; text-decoration: none;
   border: 1.5px solid rgba(255,255,255,.1);
   background: rgba(255,255,255,.04);
   backdrop-filter: blur(12px);
@@ -472,33 +523,25 @@ nav {
 .contact-big-link:hover .cbtn-arrow { transform: translate(3px,-3px); }
 
 .github-btn { --cbtn-clr: #00f5ff; }
-.github-btn:hover { border-color: #00f5ff; box-shadow: 0 5px 24px rgba(0,245,255,.22); }
+.github-btn:hover { border-color: #00f5ff; box-shadow: 0 5px 22px rgba(0,245,255,.22); }
 .github-btn svg:first-child { color: #00f5ff; flex-shrink: 0; }
 
 .linkedin-btn { --cbtn-clr: #0a66c2; }
-.linkedin-btn:hover { border-color: #0a66c2; box-shadow: 0 5px 24px rgba(10,102,194,.3); }
+.linkedin-btn:hover { border-color: #0a66c2; box-shadow: 0 5px 22px rgba(10,102,194,.3); }
 .linkedin-btn svg:first-child { color: #0a66c2; flex-shrink: 0; }
 
 .email-btn { --cbtn-clr: #ff2d78; }
-.email-btn:hover { border-color: #ff2d78; box-shadow: 0 5px 24px rgba(255,45,120,.22); }
+.email-btn:hover { border-color: #ff2d78; box-shadow: 0 5px 22px rgba(255,45,120,.22); }
 .email-btn svg:first-child { color: #ff2d78; flex-shrink: 0; }
 
 .cbtn-text { display: flex; flex-direction: column; flex: 1; text-align: left; }
-.cbtn-label { font-size: .92rem; font-weight: 800; }
-.cbtn-url { font-family: 'Fira Code', monospace; font-size: .7rem; color: var(--txt2); margin-top: .08rem; }
+.cbtn-label { font-size: .88rem; font-weight: 800; }
+.cbtn-url { font-family: 'Fira Code', monospace; font-size: .68rem; color: var(--txt2); margin-top: .05rem; }
 .cbtn-arrow { flex-shrink: 0; color: var(--txt2); transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
 
-footer { position: relative; margin-top: 1.2rem; text-align: center; color: var(--txt2); font-size: .75rem; }
+footer { position: relative; margin-top: .8rem; text-align: center; color: var(--txt2); font-size: .73rem; }
 footer span { background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
 
-/* Contact page social profile cards */
-.contact-social-cards {
-  display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
-  margin-top: .2rem; max-width: 520px; width: 100%;
-}
-.contact-social-cards .hero-social-card {
-  flex: 1; min-width: 155px;
-}
 
 /* ===== PAGE ARROWS ===== */
 .page-arrows { display: flex; gap: .85rem; margin-top: 1.8rem; position: relative; }
@@ -886,8 +929,11 @@ footer span { background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700); -w
   .page-projects { padding-top: calc(var(--nav-h) + .8rem); }
 
   /* Contact */
-  .contact-card { padding: 1.4rem 1.1rem; }
-  .contact-avatar { width: 72px; height: 72px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .page-contact { padding: calc(var(--nav-h) + .5rem) 1rem .8rem; }
+  .cp-avatar-wrap, .cp-avatar { width: 56px; height: 56px; }
+  .contact-social-cards { flex-direction: row; }
+
 
   /* GitHub page */
   .gh-page-header { margin-bottom: 1rem; }
@@ -907,7 +953,6 @@ footer span { background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700); -w
 }
 
 @media (max-width: 360px) {
-  .hero-social-cards { flex-direction: column; align-items: center; }
-  .hero-social-card { width: 100%; max-width: 240px; }
-  .gh-lang-name { width: 56px; font-size: .7rem; }
+  .contact-social-cards { flex-direction: column; }
+  .contact-social-cards .hero-social-card { width: 100%; }
 }
