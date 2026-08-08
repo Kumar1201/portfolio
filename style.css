@@ -436,17 +436,23 @@ nav {
 .role-desc { color: var(--txt2); font-size: .83rem; line-height: 1.6; }
 
 /* ===== CONTACT ===== */
-.page-contact { justify-content: flex-start; padding: calc(var(--nav-h) + .6rem) 2rem .8rem; overflow-y: auto; }
-.contact-header { margin-bottom: .8rem; }
-.contact-header .section-title { font-size: clamp(1.4rem,3vw,2rem); }
+.page-contact {
+  justify-content: flex-start;
+  align-items: stretch;          /* override .page's center — let grid fill full width */
+  padding: calc(var(--nav-h) + .6rem) 2.5rem .8rem;
+  overflow-y: auto;
+}
+.contact-header { margin-bottom: .8rem; align-self: center; text-align: center; }
+.contact-header .section-title { font-size: clamp(1.3rem,2.5vw,1.9rem); }
 
 /* Two-column layout */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.4rem;
-  max-width: 900px;
+  gap: 1.5rem;
   width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
   align-items: start;
 }
 
@@ -498,9 +504,11 @@ nav {
   display: flex; gap: .6rem;
 }
 .contact-social-cards .hero-social-card {
-  flex: 1; padding: .65rem .85rem;
+  flex: 1;
+  min-width: 0 !important;   /* override hero-social-card's min-width: 155px */
+  padding: .62rem .8rem;
 }
-.contact-social-cards .hsc-icon { width: 20px; height: 20px; }
+.contact-social-cards .hsc-icon { width: 18px; height: 18px; }
 
 /* RIGHT column */
 .contact-links-col { display: flex; flex-direction: column; gap: .6rem; }
