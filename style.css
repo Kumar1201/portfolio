@@ -491,6 +491,15 @@ nav {
 footer { position: relative; margin-top: 1.2rem; text-align: center; color: var(--txt2); font-size: .75rem; }
 footer span { background: linear-gradient(135deg, #00f5ff, #ff2d78, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
 
+/* Contact page social profile cards */
+.contact-social-cards {
+  display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
+  margin-top: .2rem; max-width: 520px; width: 100%;
+}
+.contact-social-cards .hero-social-card {
+  flex: 1; min-width: 155px;
+}
+
 /* ===== PAGE ARROWS ===== */
 .page-arrows { display: flex; gap: .85rem; margin-top: 1.8rem; position: relative; }
 .arrow-btn {

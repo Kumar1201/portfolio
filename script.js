@@ -4,7 +4,7 @@
 
 /* ===== State ===== */
 let currentPage = 0;
-const totalPages = 7;
+const totalPages = 6;
 const pages = document.querySelectorAll('.page');
 const navBtns = document.querySelectorAll('.nav-btn');
 const dots = document.querySelectorAll('.dot');
@@ -41,7 +41,6 @@ function goToPage(index) {
   if (index === 2) triggerSkillBars();
   if (index === 3) triggerProjects();
   if (index === 1) triggerCounters();
-  if (index === 6) triggerGithubPage();
 
   currentPage = index;
   closeMobileNav();
@@ -380,20 +379,6 @@ const rippleStyle = document.createElement('style');
 rippleStyle.textContent = `@keyframes rippleAnim{to{transform:scale(60);opacity:0}}`;
 document.head.appendChild(rippleStyle);
 
-
-/* ===== Hero Social Card Entrance ===== */
-(function animateHeroSocialCards() {
-  const cards = document.querySelectorAll('.hero-social-card');
-  cards.forEach((card, i) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px) scale(0.96)';
-    setTimeout(() => {
-      card.style.transition = 'opacity 0.55s cubic-bezier(.34,1.56,.64,1), transform 0.55s cubic-bezier(.34,1.56,.64,1)';
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0) scale(1)';
-    }, 950 + i * 160);
-  });
-})();
 
 
 /* ===== Profile Preview Modal ===== */
