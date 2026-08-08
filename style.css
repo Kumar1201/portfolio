@@ -223,14 +223,7 @@ nav {
 .hero-desc { max-width: 460px; color: var(--txt2); font-size: .93rem; line-height: 1.7; }
 .hero-cta { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; }
 
-.page-nav-arrow {
-  position: absolute; bottom: 1.2rem;
-  display: flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(0,245,255,.1); border: 1px solid rgba(0,245,255,.3);
-  cursor: pointer; color: var(--electric);
-  animation: bounce 2s ease-in-out infinite; transition: .3s;
-}
+.page-nav-arrow { display: none !important; }
 .page-nav-arrow:hover { background: rgba(0,245,255,.22); box-shadow: 0 0 30px rgba(0,245,255,.4); }
 @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
