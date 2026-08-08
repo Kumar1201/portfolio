@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <!-- Primary SEO -->
   <title>Kumara Swamy R — Web Developer &amp; Data Scientist</title>
   <meta name="description" content="Portfolio of Kumara Swamy R — a passionate Web Developer &amp; Data Scientist skilled in Python, Java, C, Machine Learning, and building modern web experiences." />
   <meta name="keywords" content="Kumara Swamy R, web developer, data scientist, python developer, machine learning, portfolio, Kumar1201, India" />
@@ -12,7 +11,6 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kumar1201.github.io/portfolio/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kumar1201.github.io/portfolio/" />
   <meta property="og:title" content="Kumara Swamy R — Web Developer &amp; Data Scientist" />
@@ -20,13 +18,11 @@
   <meta property="og:image" content="https://kumar1201.github.io/portfolio/me.jpg" />
   <meta property="og:site_name" content="Kumara Swamy R Portfolio" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kumara Swamy R — Web Developer &amp; Data Scientist" />
   <meta name="twitter:description" content="Passionate about building beautiful web experiences and turning data into meaningful insights." />
   <meta name="twitter:image" content="https://kumar1201.github.io/portfolio/me.jpg" />
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,13 +30,9 @@
     "name": "Kumara Swamy R",
     "url": "https://kumar1201.github.io/portfolio/",
     "image": "https://kumar1201.github.io/portfolio/me.jpg",
-    "jobTitle": "Web Developer &amp; Data Scientist",
-    "description": "Passionate Web Developer and Data Scientist skilled in Python, Java, C, Machine Learning, and modern web development.",
-    "sameAs": [
-      "https://github.com/Kumar1201",
-      "https://www.linkedin.com/in/kumara-swamy-r-3177b8312"
-    ],
-    "knowsAbout": ["Python", "Java", "C", "Web Development", "Data Science", "Machine Learning", "Data Visualization"]
+    "jobTitle": "Web Developer & Data Scientist",
+    "sameAs": ["https://github.com/Kumar1201","https://www.linkedin.com/in/kumara-swamy-r-3177b8312"],
+    "knowsAbout": ["Python","Java","C","Web Development","Data Science","Machine Learning"]
   }
   </script>
 
@@ -50,35 +42,67 @@
 
 <!-- ===== PARTICLE CANVAS ===== -->
 <canvas id="particles-canvas"></canvas>
-<div class="orb-extra"></div>
 
 <!-- ===== NAV ===== -->
-<nav>
+<nav id="mainNav">
   <div class="nav-logo">KS&lt;/&gt;</div>
-  <ul class="nav-links">
+
+  <ul class="nav-links" id="navLinks">
     <li><button class="nav-btn active" data-page="0">Home</button></li>
     <li><button class="nav-btn" data-page="1">About</button></li>
     <li><button class="nav-btn" data-page="2">Skills</button></li>
     <li><button class="nav-btn" data-page="3">Projects</button></li>
     <li><button class="nav-btn" data-page="4">Expertise</button></li>
     <li><button class="nav-btn" data-page="5">Contact</button></li>
+    <li><button class="nav-btn github-nav-btn" data-page="6">GitHub</button></li>
   </ul>
 
-  <!-- Page indicator dots -->
-  <div class="page-dots">
-    <span class="dot active" data-page="0"></span>
-    <span class="dot" data-page="1"></span>
-    <span class="dot" data-page="2"></span>
-    <span class="dot" data-page="3"></span>
-    <span class="dot" data-page="4"></span>
-    <span class="dot" data-page="5"></span>
+  <div class="nav-right">
+    <div class="page-dots">
+      <span class="dot active" data-page="0"></span>
+      <span class="dot" data-page="1"></span>
+      <span class="dot" data-page="2"></span>
+      <span class="dot" data-page="3"></span>
+      <span class="dot" data-page="4"></span>
+      <span class="dot" data-page="5"></span>
+      <span class="dot" data-page="6"></span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="mob-nav-overlay" id="mobNavOverlay"></div>
+<nav class="mob-nav" id="mobNav" aria-label="Mobile navigation">
+  <button class="mob-nav-item active" data-page="0">
+    <span class="mob-nav-icon">🏠</span> Home
+  </button>
+  <button class="mob-nav-item" data-page="1">
+    <span class="mob-nav-icon">👤</span> About
+  </button>
+  <button class="mob-nav-item" data-page="2">
+    <span class="mob-nav-icon">⚡</span> Skills
+  </button>
+  <button class="mob-nav-item" data-page="3">
+    <span class="mob-nav-icon">🚀</span> Projects
+  </button>
+  <button class="mob-nav-item" data-page="4">
+    <span class="mob-nav-icon">🎯</span> Expertise
+  </button>
+  <button class="mob-nav-item" data-page="5">
+    <span class="mob-nav-icon">✉️</span> Contact
+  </button>
+  <button class="mob-nav-item" data-page="6">
+    <span class="mob-nav-icon">🐙</span> GitHub Profile
+  </button>
 </nav>
 
 <!-- ===== PAGE CONTAINER ===== -->
 <div class="pages-wrapper" id="pagesWrapper">
 
-  <!-- PAGE 0: HERO -->
+  <!-- ======================== PAGE 0: HERO ======================== -->
   <div class="page" id="page-0">
     <div class="hero-badge">&#10022; Available for opportunities</div>
     <div class="hero-avatar-wrap">
@@ -99,38 +123,38 @@
       </button>
     </div>
 
-    <!-- Social Profile Cards on Hero -->
+    <!-- Social Profile Cards -->
     <div class="hero-social-cards">
-      <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="hero-social-card github-card" id="hero-github-card" onclick="showProfilePreview('github')">
+      <a href="https://github.com/Kumar1201" target="_blank" rel="noopener"
+         class="hero-social-card github-card" id="hero-github-card"
+         onclick="event.preventDefault();showProfilePreview('github')">
         <div class="hsc-glow"></div>
         <svg class="hsc-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         <div class="hsc-info">
           <span class="hsc-name">GitHub</span>
           <span class="hsc-handle">@Kumar1201</span>
         </div>
-        <div class="hsc-arrow">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
+        <div class="hsc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
       </a>
-      <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="hero-social-card linkedin-card" id="hero-linkedin-card" onclick="showProfilePreview('linkedin')">
+      <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener"
+         class="hero-social-card linkedin-card" id="hero-linkedin-card"
+         onclick="event.preventDefault();showProfilePreview('linkedin')">
         <div class="hsc-glow"></div>
         <svg class="hsc-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         <div class="hsc-info">
           <span class="hsc-name">LinkedIn</span>
           <span class="hsc-handle">Kumara Swamy R</span>
         </div>
-        <div class="hsc-arrow">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
+        <div class="hsc-arrow"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
       </a>
     </div>
 
-    <div class="page-nav-arrow" onclick="goToPage(1)">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+    <div class="page-nav-arrow" onclick="goToPage(1)" aria-label="Next page">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
     </div>
   </div>
 
-  <!-- PAGE 1: ABOUT -->
+  <!-- ======================== PAGE 1: ABOUT ======================== -->
   <div class="page page-about" id="page-1">
     <div class="about-grid">
       <div class="about-img-wrap">
@@ -148,30 +172,25 @@
           <div class="stat-box"><div class="stat-num" data-count="5" data-suffix="+">0+</div><div class="stat-label">Projects</div></div>
           <div class="stat-box"><div class="stat-num" data-count="100" data-suffix="%">0%</div><div class="stat-label">Dedication</div></div>
         </div>
-        <!-- Social Profile Badges in About -->
         <div class="about-social-badges">
           <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="about-badge github-badge" id="about-github-badge">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             <span>Kumar1201</span>
           </a>
           <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="about-badge linkedin-badge" id="about-linkedin-badge">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             <span>kumara-swamy-r</span>
           </a>
         </div>
       </div>
     </div>
     <div class="page-arrows">
-      <button class="arrow-btn" onclick="goToPage(0)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
-      </button>
-      <button class="arrow-btn primary" onclick="goToPage(2)">
-        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
-      </button>
+      <button class="arrow-btn" onclick="goToPage(0)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(2)">Next <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg></button>
     </div>
   </div>
 
-  <!-- PAGE 2: SKILLS -->
+  <!-- ======================== PAGE 2: SKILLS ======================== -->
   <div class="page page-skills" id="page-2">
     <div class="section-header">
       <div class="section-label">// tech_stack</div>
@@ -223,16 +242,12 @@
       </div>
     </div>
     <div class="page-arrows">
-      <button class="arrow-btn" onclick="goToPage(1)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
-      </button>
-      <button class="arrow-btn primary" onclick="goToPage(3)">
-        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
-      </button>
+      <button class="arrow-btn" onclick="goToPage(1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(3)">Next <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg></button>
     </div>
   </div>
 
-  <!-- PAGE 3: PROJECTS -->
+  <!-- ======================== PAGE 3: PROJECTS ======================== -->
   <div class="page page-projects" id="page-3">
     <div class="section-header">
       <div class="section-label">// my_work</div>
@@ -240,7 +255,6 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
-
       <div class="proj-card">
         <div class="proj-top">
           <div class="proj-icon">&#x1F9E0;</div>
@@ -249,17 +263,13 @@
         <div class="proj-name">Face Recognition Project</div>
         <div class="proj-desc">A machine learning project implementing real-time face detection and recognition using Python and Jupyter Notebooks. Leverages computer vision techniques for accurate identification.</div>
         <div class="proj-tags">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Jupyter</span>
-          <span class="proj-tag">ML</span>
-          <span class="proj-tag">OpenCV</span>
+          <span class="proj-tag">Python</span><span class="proj-tag">Jupyter</span><span class="proj-tag">ML</span><span class="proj-tag">OpenCV</span>
         </div>
         <a href="https://github.com/Kumar1201/FaceRecognition_Project" target="_blank" rel="noopener" class="proj-link">
           <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           View on GitHub
         </a>
       </div>
-
       <div class="proj-card">
         <div class="proj-top">
           <div class="proj-icon">&#x1F33F;</div>
@@ -268,35 +278,28 @@
         <div class="proj-name">Sustainable Materials Hub</div>
         <div class="proj-desc">A full-featured web application for exploring and managing sustainable materials data. Built with modern JavaScript, featuring an interactive UI for environmental impact analysis.</div>
         <div class="proj-tags">
-          <span class="proj-tag">JavaScript</span>
-          <span class="proj-tag">Web App</span>
-          <span class="proj-tag">Sustainability</span>
+          <span class="proj-tag">JavaScript</span><span class="proj-tag">Web App</span><span class="proj-tag">Sustainability</span>
         </div>
         <a href="https://github.com/Kumar1201/Sustainable-Materials-Hub" target="_blank" rel="noopener" class="proj-link">
           <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           View on GitHub
         </a>
       </div>
-
       <div class="proj-card">
         <div class="proj-top">
           <div class="proj-icon">&#x1F3AF;</div>
           <div class="proj-lang css">CSS / HTML</div>
         </div>
         <div class="proj-name">Developer Portfolio</div>
-        <div class="proj-desc">This portfolio website itself — designed and built from scratch with a premium multi-page layout, particle animations, glassmorphism, and a neon holographic theme.</div>
+        <div class="proj-desc">This portfolio website — designed and built from scratch with a premium multi-page layout, particle animations, glassmorphism, and a neon holographic theme.</div>
         <div class="proj-tags">
-          <span class="proj-tag">HTML</span>
-          <span class="proj-tag">CSS</span>
-          <span class="proj-tag">JavaScript</span>
-          <span class="proj-tag">Design</span>
+          <span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Design</span>
         </div>
         <a href="https://github.com/Kumar1201/portfolio" target="_blank" rel="noopener" class="proj-link">
           <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           View on GitHub
         </a>
       </div>
-
       <div class="proj-card">
         <div class="proj-top">
           <div class="proj-icon">&#x1F4DA;</div>
@@ -305,17 +308,13 @@
         <div class="proj-name">Placement Prep Class</div>
         <div class="proj-desc">A curated collection of placement preparation resources, coding problems, and algorithm implementations in Python, Java, and C. Covers arrays, trees, graphs, DP and more.</div>
         <div class="proj-tags">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Java</span>
-          <span class="proj-tag">C</span>
-          <span class="proj-tag">Algorithms</span>
+          <span class="proj-tag">Python</span><span class="proj-tag">Java</span><span class="proj-tag">C</span><span class="proj-tag">Algorithms</span>
         </div>
         <a href="https://github.com/Kumar1201/Placement-Class" target="_blank" rel="noopener" class="proj-link">
           <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           View on GitHub
         </a>
       </div>
-
     </div>
     <div class="proj-github-cta">
       <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="btn-outline" id="gh-profile-btn">
@@ -324,16 +323,12 @@
       </a>
     </div>
     <div class="page-arrows">
-      <button class="arrow-btn" onclick="goToPage(2)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
-      </button>
-      <button class="arrow-btn primary" onclick="goToPage(4)">
-        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
-      </button>
+      <button class="arrow-btn" onclick="goToPage(2)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(4)">Next <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg></button>
     </div>
   </div>
 
-  <!-- PAGE 4: EXPERTISE -->
+  <!-- ======================== PAGE 4: EXPERTISE ======================== -->
   <div class="page page-roles" id="page-4">
     <div class="section-header">
       <div class="section-label">// what_i_do</div>
@@ -363,16 +358,12 @@
       </div>
     </div>
     <div class="page-arrows">
-      <button class="arrow-btn" onclick="goToPage(3)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
-      </button>
-      <button class="arrow-btn primary" onclick="goToPage(5)">
-        Next <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
-      </button>
+      <button class="arrow-btn" onclick="goToPage(3)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(5)">Next <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg></button>
     </div>
   </div>
 
-  <!-- PAGE 5: CONTACT -->
+  <!-- ======================== PAGE 5: CONTACT ======================== -->
   <div class="page page-contact" id="page-5">
     <div class="section-header">
       <div class="section-label">// contact_me</div>
@@ -384,54 +375,212 @@
       <h3 class="contact-name">Kumara Swamy R</h3>
       <p class="contact-role">Web Developer &amp; Data Scientist</p>
       <p class="contact-msg">Open to opportunities, collaborations, and interesting conversations. Have a project in mind or just want to say hi? I'd love to hear from you!</p>
-
-      <!-- Direct Links Row -->
       <div class="contact-direct-links">
         <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="contact-big-link github-btn" id="github-link">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          <div class="cbtn-text">
-            <span class="cbtn-label">GitHub</span>
-            <span class="cbtn-url">github.com/Kumar1201</span>
-          </div>
+          <div class="cbtn-text"><span class="cbtn-label">GitHub</span><span class="cbtn-url">github.com/Kumar1201</span></div>
           <svg class="cbtn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="contact-big-link linkedin-btn" id="linkedin-link">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          <div class="cbtn-text">
-            <span class="cbtn-label">LinkedIn</span>
-            <span class="cbtn-url">linkedin.com/in/kumara-swamy-r</span>
-          </div>
+          <div class="cbtn-text"><span class="cbtn-label">LinkedIn</span><span class="cbtn-url">linkedin.com/in/kumara-swamy-r</span></div>
           <svg class="cbtn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
         <a href="mailto:wwwkumar2006@gmail.com" class="contact-big-link email-btn" id="email-link">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <div class="cbtn-text">
-            <span class="cbtn-label">Email</span>
-            <span class="cbtn-url">wwwkumar2006@gmail.com</span>
-          </div>
+          <div class="cbtn-text"><span class="cbtn-label">Email</span><span class="cbtn-url">wwwkumar2006@gmail.com</span></div>
           <svg class="cbtn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
       </div>
     </div>
     <div class="page-arrows">
-      <button class="arrow-btn" onclick="goToPage(4)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back
-      </button>
-      <button class="arrow-btn primary" onclick="goToPage(0)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 5l7 7-7 7"/></svg> Home
+      <button class="arrow-btn" onclick="goToPage(4)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(6)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub Profile
       </button>
     </div>
     <footer>Designed &amp; Built with &#x2764;&#xFE0F; by <span>Kumara Swamy R</span> &middot; &copy; 2025</footer>
   </div>
 
+  <!-- ======================== PAGE 6: GITHUB PROFILE ======================== -->
+  <div class="page page-github" id="page-6">
+    <div class="gh-page-header">
+      <div class="section-label">// github_profile</div>
+      <h2 class="section-title">My <span>GitHub</span> Profile</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="gh-wrap">
+      <!-- LEFT: Profile Card -->
+      <div class="gh-left">
+        <div class="gh-card">
+          <!-- Animated top border -->
+          <div class="gh-card-border"></div>
+
+          <!-- Avatar + Identity -->
+          <div class="gh-avatar-area">
+            <div class="gh-avatar-ring-wrap">
+              <div class="gh-ring"></div>
+              <img src="me.jpg" alt="Kumara Swamy R" class="gh-avatar" />
+              <div class="gh-online-dot"></div>
+            </div>
+          </div>
+          <div class="gh-identity">
+            <div class="gh-fullname">Kumara Swamy R</div>
+            <div class="gh-username">@Kumar1201</div>
+          </div>
+
+          <p class="gh-bio">&#x1F680; Web Developer &amp; Data Scientist &middot; Building elegant web experiences and turning data into meaningful insights.</p>
+
+          <div class="gh-meta-list">
+            <div class="gh-meta-item"><span class="gh-meta-icon">&#x1F4CD;</span> India</div>
+            <div class="gh-meta-item"><span class="gh-meta-icon">&#x1F393;</span> Student &amp; Developer</div>
+            <div class="gh-meta-item"><span class="gh-meta-icon">&#x1F4BC;</span> Open to Work</div>
+            <div class="gh-meta-item"><span class="gh-meta-icon">&#x2B50;</span> Python · JavaScript · ML</div>
+          </div>
+
+          <!-- Stats -->
+          <div class="gh-stats">
+            <div class="gh-stat-box"><div class="gh-stat-val">4</div><div class="gh-stat-key">Repos</div></div>
+            <div class="gh-stat-box"><div class="gh-stat-val">12</div><div class="gh-stat-key">Stars</div></div>
+            <div class="gh-stat-box"><div class="gh-stat-val">8</div><div class="gh-stat-key">Following</div></div>
+            <div class="gh-stat-box"><div class="gh-stat-val">5</div><div class="gh-stat-key">Followers</div></div>
+          </div>
+
+          <!-- Language Bars -->
+          <div class="gh-langs-section">
+            <div class="gh-langs-title">// Languages Used</div>
+            <div class="gh-lang-rows">
+              <div class="gh-lang-row">
+                <div class="gh-lang-dot" style="background:#3572A5"></div>
+                <span class="gh-lang-name">Python</span>
+                <div class="gh-lang-bar-wrap"><div class="gh-lang-bar-fill" data-w="45" style="background:linear-gradient(90deg,#3572A5,#5ca0d3)"></div></div>
+                <span class="gh-lang-pct">45%</span>
+              </div>
+              <div class="gh-lang-row">
+                <div class="gh-lang-dot" style="background:#f1e05a"></div>
+                <span class="gh-lang-name">JavaScript</span>
+                <div class="gh-lang-bar-wrap"><div class="gh-lang-bar-fill" data-w="25" style="background:linear-gradient(90deg,#c4b400,#f1e05a)"></div></div>
+                <span class="gh-lang-pct">25%</span>
+              </div>
+              <div class="gh-lang-row">
+                <div class="gh-lang-dot" style="background:#b07219"></div>
+                <span class="gh-lang-name">Java</span>
+                <div class="gh-lang-bar-wrap"><div class="gh-lang-bar-fill" data-w="18" style="background:linear-gradient(90deg,#b07219,#e0922a)"></div></div>
+                <span class="gh-lang-pct">18%</span>
+              </div>
+              <div class="gh-lang-row">
+                <div class="gh-lang-dot" style="background:#94959e"></div>
+                <span class="gh-lang-name">C</span>
+                <div class="gh-lang-bar-wrap"><div class="gh-lang-bar-fill" data-w="12" style="background:linear-gradient(90deg,#555,#94959e)"></div></div>
+                <span class="gh-lang-pct">12%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="gh-cta-btns">
+            <a href="https://github.com/Kumar1201" target="_blank" rel="noopener" class="gh-btn gh-btn-primary" id="view-github-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              View GitHub Profile
+            </a>
+            <a href="https://www.linkedin.com/in/kumara-swamy-r-3177b8312" target="_blank" rel="noopener" class="gh-btn gh-btn-linkedin" id="view-linkedin-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Repos + Heatmap -->
+      <div class="gh-right">
+        <!-- Pinned Repos -->
+        <div class="gh-section" id="gh-repos-section">
+          <div class="gh-section-label">&#x1F4CC; Pinned Repositories</div>
+          <div class="gh-repos-grid">
+            <a href="https://github.com/Kumar1201/FaceRecognition_Project" target="_blank" rel="noopener" class="gh-repo-card" id="gh-repo-1">
+              <div class="gh-repo-top">
+                <span class="gh-repo-icon">&#x1F9E0;</span>
+                <span class="gh-repo-visibility">Public</span>
+              </div>
+              <div class="gh-repo-name">FaceRecognition_Project</div>
+              <div class="gh-repo-desc">Real-time face detection &amp; recognition using Python and OpenCV with machine learning techniques.</div>
+              <div class="gh-repo-footer">
+                <span class="gh-repo-lang-badge"><span style="background:#3572A5"></span>Python</span>
+                <span class="gh-repo-stars">&#x2605; 3</span>
+              </div>
+            </a>
+            <a href="https://github.com/Kumar1201/Sustainable-Materials-Hub" target="_blank" rel="noopener" class="gh-repo-card" id="gh-repo-2">
+              <div class="gh-repo-top">
+                <span class="gh-repo-icon">&#x1F33F;</span>
+                <span class="gh-repo-visibility">Public</span>
+              </div>
+              <div class="gh-repo-name">Sustainable-Materials-Hub</div>
+              <div class="gh-repo-desc">Full-featured web app for sustainable materials data with interactive environmental impact analysis.</div>
+              <div class="gh-repo-footer">
+                <span class="gh-repo-lang-badge"><span style="background:#f1e05a"></span>JavaScript</span>
+                <span class="gh-repo-stars">&#x2605; 4</span>
+              </div>
+            </a>
+            <a href="https://github.com/Kumar1201/portfolio" target="_blank" rel="noopener" class="gh-repo-card" id="gh-repo-3">
+              <div class="gh-repo-top">
+                <span class="gh-repo-icon">&#x1F3AF;</span>
+                <span class="gh-repo-visibility">Public</span>
+              </div>
+              <div class="gh-repo-name">portfolio</div>
+              <div class="gh-repo-desc">Premium developer portfolio with neon holographic theme, particle animations, and glassmorphism.</div>
+              <div class="gh-repo-footer">
+                <span class="gh-repo-lang-badge"><span style="background:#e34c26"></span>HTML</span>
+                <span class="gh-repo-stars">&#x2605; 5</span>
+              </div>
+            </a>
+            <a href="https://github.com/Kumar1201/Placement-Class" target="_blank" rel="noopener" class="gh-repo-card" id="gh-repo-4">
+              <div class="gh-repo-top">
+                <span class="gh-repo-icon">&#x1F4DA;</span>
+                <span class="gh-repo-visibility">Public</span>
+              </div>
+              <div class="gh-repo-name">Placement-Class</div>
+              <div class="gh-repo-desc">Curated DSA &amp; placement preparation resources covering algorithms in Python, Java &amp; C.</div>
+              <div class="gh-repo-footer">
+                <span class="gh-repo-lang-badge"><span style="background:#3572A5"></span>Python</span>
+                <span class="gh-repo-stars">&#x2605; 2</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contribution Heatmap -->
+        <div class="gh-section" id="gh-heatmap-section">
+          <div class="gh-section-label">&#x1F4CA; Contribution Activity</div>
+          <div class="gh-heatmap-scroll">
+            <div class="gh-heatmap-grid" id="gh-heatmap-grid"></div>
+          </div>
+          <div class="gh-heatmap-legend">
+            <span>Less</span>
+            <div class="gh-legend-cell" data-level="0"></div>
+            <div class="gh-legend-cell" data-level="1"></div>
+            <div class="gh-legend-cell" data-level="2"></div>
+            <div class="gh-legend-cell" data-level="3"></div>
+            <div class="gh-legend-cell" data-level="4"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-arrows">
+      <button class="arrow-btn" onclick="goToPage(5)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 15l-7-7-7 7"/></svg> Back</button>
+      <button class="arrow-btn primary" onclick="goToPage(0)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 5l7 7-7 7"/></svg> Home</button>
+    </div>
+  </div>
+
 </div><!-- end pages-wrapper -->
 
-
-<!-- ===== HIRE ME — Fixed Floating Button ===== -->
+<!-- ===== HIRE ME ===== -->
 <a id="hire-me-btn"
-   href="mailto:wwwkumar2006@gmail.com?subject=I%20want%20to%20Hire%20You!&amp;body=Hi%20Kumara%20Swamy%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity%20with%20you."
-   title="Hire Kumara Swamy R"
-   aria-label="Send hire email to Kumara Swamy R">
+   href="mailto:wwwkumar2006@gmail.com?subject=I%20want%20to%20Hire%20You!&amp;body=Hi%20Kumara%20Swamy%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity."
+   title="Hire Kumara Swamy R" aria-label="Send hire email to Kumara Swamy R">
   <span class="hm-icon">&#x2709;</span>
   <span class="hm-label">Hire&nbsp;Me</span>
 </a>
@@ -459,9 +608,7 @@
   <button class="ppm-close" id="ppmClose" onclick="closeProfilePreview()" aria-label="Close">
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
-  <div class="ppm-inner" id="ppmInner">
-    <!-- Filled by JS -->
-  </div>
+  <div class="ppm-inner" id="ppmInner"></div>
 </div>
 
 <script src="script.js"></script>
